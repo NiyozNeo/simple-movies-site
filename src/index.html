@@ -1,12 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
-    
+    <header class="header">
+        <div class="container header__container navbar ">
+            <div class="header__wrapper">
+                <img width="70" height="70" src="img/logo.png" alt="">
+                <h1>Films</h1>
+            </div>
+            <form class="js-form">
+                <select class="form-select js-selsect">
+                    <option selected>All</option>
+                </select>
+                <input class="form-search" type="search" placeholder="Search...">
+                <select class="form-sort">
+                    <option value="0">Aa-Zz</option>
+                    <option value="1">Zz-Aa</option>
+                    <option value="2">New-Old</option>
+                    <option value="3">Old-New</option>
+                </select>
+                <button class="form__btn" type="submit">Search</button>
+            </form>
+        </div>
+    </header>
+    <main>
+        <section class="films">
+            <div class="container">
+                <ul class="films__list">
+
+                </ul>
+            </div>
+        </section>
+    </main>
+    <!-- template -->
+    <template id="template">
+        <li class="list-item">
+            <img class="list-poster" src="" alt="">
+            <div class="wrapper">
+                <h3 class="list-name"></h3>
+                <span class="list-data"></span>
+                <ul class="genres-list"></ul>
+                <div class="btn-wrapper">
+                    <button class="list-button">More</button>
+                    <button class="list-save">❤ Save</button>
+                </div>
+            </div>
+        </li>
+    </template>
+
+    <script src="js/films.js"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>

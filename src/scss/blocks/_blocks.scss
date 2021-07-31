@@ -1,12 +1,182 @@
 @import "container";
-@import "header";
-@import "intro";
-@import "guide";
-@import "benefits";
-@import "sign";
-@import "footer";
-@import "burger";
-@import "intro-about";
-@import "about-benefits";
-@import "values";
-@import "faqs";
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    background-color: #000;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+header {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #f00;
+    border-radius: 30px;
+}
+
+.header__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.js-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-select {
+    height: 36px;
+    padding: 7px 20px;
+    font-size: 17px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #f00;
+    border-radius: 5px;
+    margin-right: 10px;
+
+    &:focus {
+        border: 1px solid rgb(56, 0, 0);
+    }
+
+    &:hover {
+        border: 1px solid rgb(139, 0, 0);
+    }
+
+}
+
+select {
+    border: 1px solid #f00;
+}
+
+.form-search {
+    margin-right: 10px;
+    height: 36px;
+    padding: 7px 18px;
+    font-size: 17px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #f00;
+    border-radius: 5px;
+
+    &:focus {
+        border: 1px solid rgb(56, 0, 0);
+    }
+
+    &:hover {
+        border: 1px solid rgb(139, 0, 0);
+    }
+}
+
+.form-sort {
+    margin-right: 10px;
+    height: 36px;
+    padding: 7px 18px;
+    font-size: 17px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #f00;
+    border-radius: 5px;
+
+    &:focus {
+        border: 1px solid rgb(56, 0, 0);
+    }
+
+    &:hover {
+        border: 1px solid rgb(139, 0, 0);
+    }
+}
+
+.form__btn {
+    height: 36px;
+    padding: 8px 18px;
+    font-size: 17px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #f00;
+    border-radius: 5px;
+
+    &:hover {
+        border: 1px solid rgb(139, 0, 0);
+        color: #f00;
+    }
+}
+
+.films__list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.wrapper {
+    width: 240px;
+    margin: 0 auto;
+}
+
+.list-item {
+    margin-top: 50px;
+    border-radius: 5px;
+    border: 1px solid #f00;
+
+    &:hover {
+        box-shadow: 10px 10px 10px 10px rgb(139, 0, 0);
+    }
+}
+
+.list-name {
+    font-size: 20px;
+    text-align: center;
+}
+
+.list-data {
+    color: rgba(255, 255, 255, 0.781);
+}
+
+.genres-list {
+    margin-top: 5px;
+    flex-grow: 1;
+}
+
+.btn-wrapper {
+    margin-bottom: 10px;
+    display: flex;
+    width: 200px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.list-button,
+.list-save {
+    width: 70px;
+    height: 25px;
+    border: 1px solid #f00;
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+
+    &:hover {
+        border: 1px solid rgb(139, 0, 0);
+        color: #f00;
+    }
+}
