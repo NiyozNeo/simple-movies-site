@@ -180,3 +180,37 @@ select {
         color: #f00;
     }
 }
+.modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal__content {
+    position: relative;
+    max-width: 550px;
+    width:100%;
+    background-color: #000;
+    color: red;
+    padding: 30px 20px;
+    border-radius: 5px;
+}
+.modal__btn {
+    position: absolute ;
+    top: 5px;
+    right: 5px;
+    background-color: red;
+    border: 2px solid red;
+    border-radius: 5px;
+}
+.modal-open {
+    display: flex;
+    
+}

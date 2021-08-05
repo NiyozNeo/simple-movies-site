@@ -9,7 +9,8 @@ let ul = findEl(".films__list");
 let searchEl = findEl(".form-search");
 let sortSelect = findEl(".form-sort");
 let templateFilms = findEl("#template").content
-
+let modal = findEl(".modal");
+let modalCloseBtn = findEl(".modal__btn")
 /* Main variables */
 let filmGenres = [];
 
@@ -67,7 +68,7 @@ function createFilm(film) {
     template.querySelector(".list-poster").style = "border-radius: 5px;";
     template.querySelector(".list-name").textContent = film.title;
     template.querySelector(".list-data").textContent = date(film.release_date);
-
+    template.querySelector(".list-button").dataset.id = film.id
     /* Round genres */
     film.genres.forEach(genre => {
         let li = createEl("li");
@@ -127,3 +128,33 @@ films.forEach(element => {
 })
 
 form.addEventListener("submit", searchFunc);
+
+ul.addEventListener("click", function (evt) {
+    if (evt.target.matches(".list-button")) {
+        modal.classList.add("modal-open");
+        
+        let foundMovie = films.find(movie =>movie.id === evt.target.dataset.id)
+       
+        document.querySelector(".modal__title").textContent = foundMovie.title
+        document.querySelector(".modal__text").textContent = foundMovie.overview
+
+
+        //modal close functions //
+        document.addEventListener("keyup", function (evt) {
+            if (evt.keyCode === 27) {
+                modal.classList.remove("modal-open")
+            }
+        })
+
+
+        modal.addEventListener("click", function (evt) {
+            if (evt.target === modal) {
+                modal.classList.remove("modal-open")
+            }
+        })
+
+        modalCloseBtn.addEventListener("click", function () {
+            modal.classList.remove("modal-open")
+        })
+    }
+})
