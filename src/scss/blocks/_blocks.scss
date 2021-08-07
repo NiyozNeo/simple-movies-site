@@ -210,7 +210,60 @@ select {
     border: 2px solid red;
     border-radius: 5px;
 }
+
+
+.bookmark-modal {
+    display: none;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #000;
+}
+.bookmark-modal-content {
+    max-width: 400px;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    padding: 30px;
+    overflow-y: scroll;
+}
+.bookmark-modal-content h2 {
+    margin-bottom: 20px;
+}
+.boomark-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.bookmark-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid red;
+}
+
+.bookmark-btn {
+    position: absolute;
+    width: 140px;
+    padding: 15px;
+    background-color: black;
+    color: red;
+    right: 15px;
+    top: 15px;
+}
+
+
+
+
 .modal-open {
     display: flex;
-    
 }

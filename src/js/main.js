@@ -14,6 +14,15 @@ let modalCloseBtn = findEl(".modal__btn")
 /* Main variables */
 let filmGenres = [];
 
+let bookmarksArr = JSON.parse(window.localStorage.getItem("bookmarks")) || []
+let body = findEl("body");
+let bookmarksList = findEl(".bookmark-list");
+let bookmarkBtn = findEl(".bookmark-btn");
+let bookmarkModal = findEl(".bookmark-modal");
+let bookmarkTemmplate = findEl(".bookmark-template").content
+let bookmarksFragment = document.createDocumentFragment()
+
+
 /* Find date */
 function date(date) {
 
@@ -78,7 +87,7 @@ function createFilm(film) {
         /* run in genres round */
         findByGenre(genre)
     })
-
+    template.querySelector(".list-save").dataset.id = film.id
     ul.appendChild(template)
 }
 
@@ -129,6 +138,10 @@ films.forEach(element => {
 
 form.addEventListener("submit", searchFunc);
 
+
+bookmarksArr.forEach(movie => renderBookmarks(movie))
+
+
 ul.addEventListener("click", function (evt) {
     if (evt.target.matches(".list-button")) {
         modal.classList.add("modal-open");
@@ -156,5 +169,63 @@ ul.addEventListener("click", function (evt) {
         modalCloseBtn.addEventListener("click", function () {
             modal.classList.remove("modal-open")
         })
+
+        
+    }
+
+
+    if (evt.target.matches(".list-save")) {
+        let foundMovie = films.find((movie) => movie.id === evt.target.dataset.id)
+        console.log("heloo");
+        if (!bookmarksArr.includes(foundMovie)) {
+            bookmarksArr.push(foundMovie)
+            
+            window.localStorage.setItem("bookmarks", JSON.stringify(bookmarksArr))
+        }
+
+        bookmarksList.innerHTML = null
+
+        bookmarksArr.forEach(movie => renderBookmarks(movie))
+
+
+        bookmarksList.appendChild(bookmarksFragment)
+    }
+})
+
+bookmarkBtn.addEventListener("click", function () {
+    bookmarkModal.classList.add("modal-open")
+    
+    body.style = "overflow-y: hidden;"
+    
+
+    bookmarkModal.addEventListener("click", function (evt) {
+        if (evt.target === bookmarkModal) {
+            bookmarkModal.classList.remove("modal-open")
+            body.style = "overflow-y: scroll;"
+
+        }
+    })
+})
+
+function renderBookmarks(bookmarkMovie) {
+    let elBookmark = bookmarkTemmplate.cloneNode(true)
+
+    elBookmark.querySelector(".movie-name").textContent = bookmarkMovie.title
+    elBookmark.querySelector(".movie-remove-btn").dataset.id = bookmarkMovie.id
+
+    bookmarksFragment.appendChild(elBookmark)
+}
+
+bookmarksList.addEventListener("click", function (evt) {
+    if (evt.target.matches(".movie-remove-btn")) {
+        let foundIndex = bookmarksArr.findIndex(item => item.id === evt.target.dataset.id)
+        bookmarksArr.splice(foundIndex, 1)
+        
+        bookmarksArr.forEach(movie => renderBookmarks(movie))
+        bookmarksList.innerHTML = null
+
+        bookmarksList.appendChild(bookmarksFragment)
+
+        window.localStorage.setItem("bookmarks", JSON.stringify(bookmarksArr))
     }
 })

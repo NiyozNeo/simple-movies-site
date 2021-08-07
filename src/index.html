@@ -16,6 +16,7 @@
                 <!-- <img width="70" height="70" src="img/logo.png" alt=""> -->
                 <h1>Films</h1>
             </div>
+            <button class="bookmark-btn">BOOKMARK</button>
             <form class="js-form">
                 <select class="form-select js-selsect">
                     <option selected>All</option>
@@ -53,6 +54,18 @@
                     <button class="list-save">❤ Save</button>
                 </div>
             </div>
+        </li>
+    </template>
+    <div class="bookmark-modal">
+        <div class="bookmark-modal-content">
+            <h2>BOOKMARKS</h2>
+            <ul class="bookmark-list"></ul>
+        </div>
+    </div>
+    <template class="bookmark-template">
+        <li class="bookmark-item">
+            <h3 class="movie-name">Kino nomi</h3>
+            <button class="movie-remove-btn">Remove</button>
         </li>
     </template>
     <div class="modal">
